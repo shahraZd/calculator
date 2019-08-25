@@ -1,0 +1,63 @@
+/* COLORS
+- black: #000000
+- white: #ffffff
+- light grey: #d8d9db
+- buttons on hover: #ebebeb
+- button active state: #bbbcbe
+- function buttons: #df974c
+- function buttons on hover: #dfb07e
+- function button active state: #dd8d37 */
+
+.container{
+    width:400px;
+    height:482px;
+    margin-top:20px;
+    border-radius:5px;
+}
+.row{
+    height:80px;
+}
+.result{
+    background-color:#000;
+    color:#fff;
+    width:100%;
+    border:none;
+    text-align:right;
+    padding:0px 15px;
+    font-size:25px;
+}
+
+.col{
+    height:80px;
+    padding:0px;
+}
+.calc-btn{
+    background-color:#d8d9db;
+    color:#000;
+    width:100%;
+    height:100%;
+    font-weight: 600;
+    font-size:20px;
+    border:1px solid #000;
+}
+.calc-btn:hover{
+    background-color:#ebebeb;
+}
+.calc-btn:active{
+    background-color:#bbbcbe;
+}
+.fct{
+    background-color:#df974c;
+    color:#000;
+    width:100%;
+    height:100%;
+    font-weight: 600;
+    font-size:20px;
+    border:1px solid #000;
+}
+.fct:hover{
+    background-color:#dfb07e;
+}
+.fct:active{
+    background-color:#dd8d37;
+}
