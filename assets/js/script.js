@@ -44,17 +44,24 @@ for (let i of fct) {
           res = add(val1, val2);
           result.value = res;
           val1 = res;
+          val2=0;
           break;
 
-        case "&#8722;":
+        case "-":
           res = minus(val1, val2);
+          result.value = res;
+          val1 = res;
           break;
 
         case "/":
           res = devide(val1, val2);
+          result.value = res;
+          val1 = res;
           break;
-        case "*":
+        case "x":
           res = multiply(val1, val2);
+          result.value = res;
+          val1 = res;
           break;
         default:
           res;
