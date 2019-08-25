@@ -2,13 +2,13 @@ let result = document.querySelector(".result");
 let btn = document.querySelectorAll(".calc-btn");
 let fct = document.querySelectorAll(".fct");
 let nbr = document.querySelectorAll(".nbr");
-
+let res = result.value;
 let val1 = 0;
 let val2 = 0;
 let opp = "";
 
 const add = (a, b) => {
-  return( a + b);
+  return a + b;
 };
 const minus = (a, b) => {
   return a - b;
@@ -26,28 +26,37 @@ const devide = (a, b) => {
 const clear = () => {
   val1 = 0;
   val2 = 0;
-  result.value = 0;
-  return val1, val2, result;
+  res = 0;
+  result.value = res;
+  return val1, val2, res;
 };
 
 for (let i of fct) {
   i.addEventListener("click", function() {
     if (i.innerHTML !== "=") {
       opp = i.innerHTML;
+      result.value="0"
     } else {
       switch (opp) {
         case "+":
-          result.value = add(val1, 8);
+          res = add(val1, 5);
+          result.value = res;
+          val1=res;
+          break;
 
-        case "-":
-          result.value = minus(5, 8);
+        case "&#8722;":
+          res = minus(val1, 5);
+          break;
 
         case "/":
-          result.value = devide(5, 0);
+          res = devide(val1, 2);
+          break;
         case "*":
-          result.value = multiply(5, 8);
+          res = multiply(val1, 2);
+          break;
         default:
-          result.value;
+          res;
+          break;
       }
     }
   });
@@ -60,24 +69,14 @@ for (let i of btn) {
         return clear();
       case "&#8592;":
         return (result.value = result.value.slice(0, -1));
-      default:if (val1 === 0) {
-        val1 = i.innerHTML;
-        result.value = val1;
-      } else {
-        val1 = val1 + i.innerHTML;
-        result.value = val1;
-      }
+      default:
+        if (val1 === 0) {
+          val1 = Number(i.innerHTML);
+          result.value = val1;
+        } else {
+          val1 = Number(val1 + i.innerHTML);
+          result.value = val1;
+        }
     }
-    // if (i.innerHTML === "C") {
-    //   //   clear();
-    // } else {
-    //   if (val1 === 0) {
-    //     val1 = i.innerHTML;
-    //     result.value = val1;
-    //   } else {
-    //     val1 = val1 + i.innerHTML;
-    //     result.value = val1;
-    //   }
-    // }
   });
 }
