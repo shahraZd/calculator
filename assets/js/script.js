@@ -6,6 +6,7 @@ let res = result.value;
 let val1 = 0;
 let val2 = 0;
 let opp = "";
+let isClicked=false
 
 const add = (a, b) => {
   return a + b;
@@ -28,6 +29,7 @@ const clear = () => {
   val2 = 0;
   res = 0;
   result.value = res;
+  isClicked=false;
   return val1, val2, res;
 };
 
@@ -39,26 +41,27 @@ for (let i of fct) {
     } else {
       switch (opp) {
         case "+":
-          res = add(val1, 5);
+          res = add(val1, val2);
           result.value = res;
           val1=res;
           break;
 
         case "&#8722;":
-          res = minus(val1, 5);
+          res = minus(val1, val2);
           break;
 
         case "/":
-          res = devide(val1, 2);
+          res = devide(val1, val2);
           break;
         case "*":
-          res = multiply(val1, 2);
+          res = multiply(val1, val2);
           break;
         default:
           res;
           break;
       }
     }
+    return isClicked=true
   });
 }
 
@@ -68,15 +71,26 @@ for (let i of btn) {
       case "C":
         return clear();
       case "&#8592;":
-        return (result.value = result.value.slice(0, -1));
+        return result.value = result.value.slice(0, -1);
       default:
-        if (val1 === 0) {
-          val1 = Number(i.innerHTML);
-          result.value = val1;
-        } else {
-          val1 = Number(val1 + i.innerHTML);
-          result.value = val1;
+        if(!isClicked){
+          if (val1 === 0) {
+            val1 = Number(i.innerHTML);
+            result.value = val1;
+          } else {
+            val1 = Number(val1 + i.innerHTML);
+            result.value = val1;
+          }
+        }else{
+          if (val2 === 0) {
+            val2 = Number(i.innerHTML);
+            result.value = val2;
+          } else {
+            val2 = Number(val2 + i.innerHTML);
+            result.value = val2;
+          }
         }
+      
     }
   });
 }
