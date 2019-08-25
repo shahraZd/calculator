@@ -50,17 +50,20 @@ for (let i of fct) {
         case "-":
           res = minus(val1, val2);
           result.value = res;
+          val2=0;
           val1 = res;
           break;
 
         case "/":
           res = devide(val1, val2);
           result.value = res;
+          val2=0;
           val1 = res;
           break;
         case "x":
           res = multiply(val1, val2);
           result.value = res;
+          val2=0;
           val1 = res;
           break;
         default:
