@@ -6,7 +6,7 @@ let res = result.value;
 let val1 = 0;
 let val2 = 0;
 let opp = "";
-let isClicked=false
+let isClicked = false;
 
 const add = (a, b) => {
   return a + b;
@@ -29,7 +29,7 @@ const clear = () => {
   val2 = 0;
   res = 0;
   result.value = res;
-  isClicked=false;
+  isClicked = false;
   return val1, val2, res;
 };
 
@@ -37,13 +37,13 @@ for (let i of fct) {
   i.addEventListener("click", function() {
     if (i.innerHTML !== "=") {
       opp = i.innerHTML;
-      result.value="0"
+      result.value = "0";
     } else {
       switch (opp) {
         case "+":
           res = add(val1, val2);
           result.value = res;
-          val1=res;
+          val1 = res;
           break;
 
         case "&#8722;":
@@ -61,7 +61,7 @@ for (let i of fct) {
           break;
       }
     }
-    return isClicked=true
+    return (isClicked = true);
   });
 }
 
@@ -70,10 +70,16 @@ for (let i of btn) {
     switch (i.innerHTML) {
       case "C":
         return clear();
-      case "&#8592;":
-        return result.value = result.value.slice(0, -1);
+      case "←":
+        result.value = result.value.slice(0, -1);
+        if (!isClicked) {
+          val1 = Number(result.value);
+        } else {
+          val2 = Number(result.value);
+        }
+        break;
       default:
-        if(!isClicked){
+        if (!isClicked) {
           if (val1 === 0) {
             val1 = Number(i.innerHTML);
             result.value = val1;
@@ -81,7 +87,7 @@ for (let i of btn) {
             val1 = Number(val1 + i.innerHTML);
             result.value = val1;
           }
-        }else{
+        } else {
           if (val2 === 0) {
             val2 = Number(i.innerHTML);
             result.value = val2;
@@ -90,7 +96,6 @@ for (let i of btn) {
             result.value = val2;
           }
         }
-      
     }
   });
 }
