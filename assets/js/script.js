@@ -1,7 +1,6 @@
 let result = document.querySelector(".result");
 let btn = document.querySelectorAll(".calc-btn");
 let fct = document.querySelectorAll(".fct");
-let nbr = document.querySelectorAll(".nbr");
 let res = result.value;
 let val1 = 0;
 let val2 = 0;
@@ -38,32 +37,33 @@ for (let i of fct) {
     if (i.innerHTML !== "=") {
       opp = i.innerHTML;
       result.value = "0";
+     
     } else {
       switch (opp) {
         case "+":
           res = add(val1, val2);
           result.value = res;
           val1 = res;
-          val2=0;
+          val2 = 0;
           break;
 
         case "-":
           res = minus(val1, val2);
           result.value = res;
-          val2=0;
+          val2 = 0;
           val1 = res;
           break;
 
         case "/":
           res = devide(val1, val2);
           result.value = res;
-          val2=0;
+          val2 = 0;
           val1 = res;
           break;
         case "x":
           res = multiply(val1, val2);
           result.value = res;
-          val2=0;
+          val2 = 0;
           val1 = res;
           break;
         default:
